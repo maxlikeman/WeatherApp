@@ -1,24 +1,39 @@
 {% extends 'all-news/base.html' %}
 
 {% block content %}
-    {{ block.super }}
+{{ block.super }}
 
-    <div class="container">
-        <!--Looping through the news-->
-        {% for news_item in news %}
-            <div class="row">
+<div class="container">
+    <!--Looping through the news-->
+    {% for news_item in news %}
+        <div class="card">
+            {% if news_item.article_image %}
+                    <img class="card-img-top" src="{{ news_item.article_image.url }}" alt="Card image cap">
+            {% endif %}
+            <div class="card-body">
+                <h4 class="card-title">{{ news_item.title }}</h4>
+                <p class="card-text">
+                    {{ news_item.post | truncatechars:100 }}
+                </p>
+                <a href="{% url 'article' news_item.id %}" class="btn btn-primary">View Article</a>
+            </div>
+        </div>
+    {% empty %}
+        <div class="row">
+            <h2 class="text-center">
+                There is no News Items
+            </h2>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+<!--
+      <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <h2 class="text-center">
-                        {{ news_item.title }}
+                        <a href="{% url 'article' news_item.id %}">{{ news_item.title }}</a>
                     </h2>
                 </div>
             </div>
-        {% empty %}
-            <div class="row">
-                <h2 class="text-center">
-                    There is no News Items
-                </h2>
-            </div>
-        {% endfor %}
-    </div>
-{% endblock %}
+  -->

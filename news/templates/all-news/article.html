@@ -1,0 +1,25 @@
+{% extends 'all-news/base.html' %}
+{% block content %}
+    <div class="container">
+        {% if article.article_image %}
+            <div class="container">
+                <div class="row" style="max-width: 100%;">
+                    <img src="{{ article.article_image.url }}" alt="image" class="img-responsive">
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <h1 class="text-center">
+                {{ article.title }}
+            </h1>
+        </div>
+        <hr>
+        <div class="row">
+            <p>{{ article.post }}</p>
+        </div>
+        <hr>
+        <div class="row">
+            <p>Posted On: {{ article.pub_date|timesince }} by: {{ article.editor.first_name }}</p>
+        </div>
+    </div>
+{% endblock %}
