@@ -56,7 +56,7 @@ SECRET_KEY = 'l!3+5nd)_8*!zr2#s@pb5bp_ft$ft&box3d6)on%jtb(hk6vii'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['moringatribunev2.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -157,7 +157,6 @@ USE_TZ = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
