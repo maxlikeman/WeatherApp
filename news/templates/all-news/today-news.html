@@ -1,4 +1,5 @@
 {% extends 'all-news/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
     {{block.super}}
@@ -25,5 +26,15 @@
                 </h2>
             </div>
         {% endfor %}
+        <!--News loop end-->
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <form action="{% url 'newsToday' %}" method="POST">
+            {% csrf_token %}
+
+            {% bootstrap_form letterForm layout='inline' %}
+            <input type="submit" value="Subscribe" class="btn btn-primary">
+        </form>
     </div>
 {% endblock %}
