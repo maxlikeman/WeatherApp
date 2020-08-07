@@ -15,7 +15,9 @@
         </div>
         <hr>
         <div class="row">
-            <p>{{ article.post }}</p>
+            {% autoescape on %}
+                {{ article.post | safe }}
+            {% endautoescape %}
         </div>
         <hr>
         <div class="row">
